@@ -27,7 +27,6 @@ resource "aws_s3_bucket" "terraform_state" {
     }
   }
 }
-# resource "aws_dynamodb_table" "terraform_state_locks"{} #importing the dynamo db table
 
 # create an DynamoDB Table
 resource "aws_dynamodb_table" "terraform_state_locks" {
