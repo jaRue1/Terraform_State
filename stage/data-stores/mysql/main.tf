@@ -19,6 +19,7 @@ resource "aws_db_instance" "example" {
   name                = "example_database"
   username            = "admin"
   password            = "password"
+   skip_final_snapshot  = true
 }
 #store its state in the S3 bucket you created 
 terraform {
