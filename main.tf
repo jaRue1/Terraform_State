@@ -27,6 +27,7 @@ resource "aws_s3_bucket" "terraform_state" {
     }
   }
 }
+# resource "aws_dynamodb_table" "terraform_state_locks"{} #importing the dynamo db table
 
 # create an DynamoDB Table
 resource "aws_dynamodb_table" "terraform_state_locks" {
@@ -70,5 +71,8 @@ output "dynamodb_table_name" {
 # Create ec2 instance 
 resource "aws_instance" "example" {
   ami           = "ami-0747bdcabd34c712a"
-  instance_type = "t2.micro"
+  instance_type = ( terraform.workspace == "default" 
+    ? "t2.medium" 
+    : "t2.micro"
+  )
 }
