@@ -14,6 +14,9 @@ provider "aws" {
 # create an S3 bucket
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "terraform-state-rue-johnson-example"
+
+  force_destroy = true
+
   # Enable versioning
   versioning {
     enabled = true
